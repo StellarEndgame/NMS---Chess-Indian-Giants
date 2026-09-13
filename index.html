@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+/* =========================================================
+   CHESS INDIAN GIANTS — PREMIUM PURPLE SIDEBAR
+   ========================================================= */
+
+html, body {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   MAIN CARD
+   ========================= */
+
+.giants-card {
+    width: 227px;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(168,85,247,.16), transparent 35%),
+        radial-gradient(circle at 100% 100%, rgba(124,58,237,.13), transparent 40%),
+        linear-gradient(155deg, #090613 0%, #120b20 48%, #0b0713 100%);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(168,85,247,.42);
+
+    box-shadow:
+        0 0 20px rgba(124,58,237,.16),
+        0 0 50px rgba(88,28,135,.10),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    animation: cardPulse 5s ease-in-out infinite;
+}
+
+@keyframes cardPulse {
+    0%,100% {
+        box-shadow:
+            0 0 20px rgba(124,58,237,.16),
+            0 0 50px rgba(88,28,135,.10),
+            inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    50% {
+        box-shadow:
+            0 0 28px rgba(124,58,237,.25),
+            0 0 65px rgba(88,28,135,.14),
+            inset 0 1px 0 rgba(255,255,255,.10);
+    }
+}
+
+/* Animated border */
+
+.giants-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 10%,
+            #7c3aed,
+            #a855f7,
+            transparent 45%,
+            transparent 60%,
+            #6d28d9,
+            transparent 90%
+        );
+
+    background-size: 250% 250%;
+    animation: borderFlow 7s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+}
+
+@keyframes borderFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+    padding: 15px 15px 13px;
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(168,85,247,.13),
+            rgba(76,29,149,.07)
+        );
+
+    border-bottom: 1px solid rgba(168,85,247,.22);
+}
+
+/* Small glowing line */
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 18px;
+    width: 55px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #a855f7,
+        #7c3aed,
+        transparent
+    );
+
+    box-shadow: 0 0 10px rgba(168,85,247,.8);
+}
+
+/* Header row */
+
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Crown / icon */
+
+.header-icon {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a855f7,
+            #6d28d9
+        );
+
+    color: white;
+    font-size: 15px;
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,.45),
+        inset 0 1px 1px rgba(255,255,255,.25);
+
+    transition: .4s ease;
+}
+
+.header:hover .header-icon {
+    transform: rotate(-6deg) scale(1.08);
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.7),
+        0 0 45px rgba(124,58,237,.25);
+}
+
+/* Header text */
+
+.header-title {
+    color: #eee7ff;
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 8px rgba(168,85,247,.45);
+}
+
+.header-subtitle {
+    margin-top: 3px;
+
+    color: rgba(196,181,253,.58);
+    font-size: 8px;
+
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+/* =========================
+   MEMBERS LIST
+   ========================= */
+
+#list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    padding: 13px;
+}
+
+/* =========================
+   MEMBER CARD
+   ========================= */
+
+.member-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(168,85,247,.075),
+            rgba(76,29,149,.08)
+        );
+
+    border: 1px solid rgba(168,85,247,.17);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+/* Moving shine */
+
+.member-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(216,180,254,.10),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left .7s ease;
+
+    pointer-events: none;
+}
+
+.member-box:hover::before {
+    left: 140%;
+}
+
+.member-box:hover {
+    transform: translateY(-2px) scale(1.015);
+
+    border-color: rgba(168,85,247,.52);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(168,85,247,.14),
+            rgba(76,29,149,.15)
+        );
+
+    box-shadow:
+        0 7px 18px rgba(76,29,149,.25),
+        0 0 18px rgba(168,85,247,.12),
+        inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* =========================
+   RANK
+   ========================= */
+
+.rank-number {
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(168,85,247,.18),
+            rgba(76,29,149,.28)
+        );
+
+    border: 1px solid rgba(168,85,247,.28);
+
+    color: #e9d5ff;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    box-shadow:
+        0 0 10px rgba(124,58,237,.14),
+        inset 0 0 8px rgba(168,85,247,.08);
+
+    transition: .45s ease;
+}
+
+.member-box:hover .rank-number {
+    transform: rotate(8deg) scale(1.1);
+
+    border-color: rgba(216,180,254,.7);
+
+    box-shadow:
+        0 0 17px rgba(168,85,247,.5),
+        inset 0 0 10px rgba(168,85,247,.18);
+}
+
+/* =========================
+   AVATAR
+   ========================= */
+
+.avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    object-fit: cover;
+
+    border: 1px solid rgba(168,85,247,.42);
+
+    box-shadow:
+        0 0 12px rgba(124,58,237,.22);
+
+    transition: .4s ease;
+}
+
+.member-box:hover .avatar {
+    transform: scale(1.07);
+
+    border-color: rgba(216,180,254,.8);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.55),
+        0 0 35px rgba(124,58,237,.18);
+}
+
+/* =========================
+   NEW BADGE
+   ========================= */
+
+.new-badge {
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    padding: 3px 5px;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c084fc,
+            #7c3aed
+        );
+
+    color: #fff;
+
+    font-size: 6px;
+    font-weight: 900;
+
+    letter-spacing: .6px;
+    text-transform: uppercase;
+
+    box-shadow:
+        0 0 10px rgba(168,85,247,.55);
+
+    animation: badgeGlow 2.2s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+    0%,100% {
+        transform: scale(1);
+        box-shadow: 0 0 8px rgba(168,85,247,.4);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 16px rgba(168,85,247,.75);
+    }
+}
+
+/* =========================
+   MEMBER INFO
+   ========================= */
+
+.info-container {
+    min-width: 0;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.name {
+    color: #eee7ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    text-shadow:
+        0 0 7px rgba(168,85,247,.25);
+
+    transition: .3s ease;
+}
+
+.member-box:hover .name {
+    color: #f3e8ff;
+
+    text-shadow:
+        0 0 10px rgba(168,85,247,.6);
+}
+
+.time-ago {
+    color: rgba(196,181,253,.58);
+
+    font-size: 8px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+.time-ago::before {
+    content: "●";
+
+    color: #a855f7;
+    font-size: 5px;
+
+    text-shadow:
+        0 0 6px rgba(168,85,247,.8);
+}
+
+/* =========================
+   LOADING
+   ========================= */
+
+.loading-text {
+    padding: 18px 8px;
+
+    color: rgba(196,181,253,.55);
+
+    font-size: 9px;
+
+    text-align: center;
+
+    letter-spacing: .7px;
+
+    animation: loadingPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+    0%,100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   LINK RESET
+   ========================= */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="giants-card">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="header-row">
+
+            <div class="header-icon">
+                🇮🇳
+            </div>
+
+            <div>
+                <div class="header-title">
+                    Welcome!
+                </div>
+
+                <div class="header-subtitle">
+                    New Indian Giants
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MEMBERS -->
+
+    <div id="list">
+
+        <div class="loading-text">
+            Loading new members...
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   TIME AGO
+   ========================================================= */
+
+function timeAgo(date) {
+
+    const seconds =
+        Math.floor((new Date() - date) / 1000);
+
+    let interval =
+        Math.floor(seconds / 31536000);
+
+    if (interval >= 1)
+        return interval + "y ago";
+
+    interval =
+        Math.floor(seconds / 2592000);
+
+    if (interval >= 1)
+        return interval + "mo ago";
+
+    interval =
+        Math.floor(seconds / 86400);
+
+    if (interval >= 1)
+        return interval + "d ago";
+
+    interval =
+        Math.floor(seconds / 3600);
+
+    if (interval >= 1)
+        return interval + "h ago";
+
+    interval =
+        Math.floor(seconds / 60);
+
+    if (interval >= 1)
+        return interval + "m ago";
+
+    return "just now";
+}
+
+
+/* =========================================================
+   LOAD MEMBERS
+   ========================================================= */
+
+async function load() {
+
+    const list =
+        document.getElementById("list");
+
+    const headers = {
+        "User-Agent":
+            "ChessIndianGiantsSidebar/3.0"
+    };
+
+    const defaultPawn =
+        "https://www.chess.com/bundles/web/images/user-image.007dad08.svg";
+
+    try {
+
+        const response =
+            await fetch(
+                "https://api.chess.com/pub/club/chess-indian-giants/members",
+                { headers }
+            );
+
+        const data =
+            await response.json();
+
+
+        /* Combine weekly + monthly */
+
+        const allMembers = [
+            ...(data.weekly || []),
+            ...(data.monthly || [])
+        ];
+
+
+        /* Newest members first */
+
+        const top3 =
+            allMembers
+                .sort((a, b) =>
+                    b.joined - a.joined
+                )
+                .slice(0, 3);
+
+
+        list.innerHTML = "";
+
+
+        /* Fetch player profiles */
+
+        const memberPromises =
+            top3.map(member =>
+
+                fetch(
+                    `https://api.chess.com/pub/player/${member.username}`,
+                    { headers }
+                )
+
+                .then(response =>
+                    response.json()
+                )
+
+                .then(player => ({
+
+                    username:
+                        member.username,
+
+                    avatar:
+                        (
+                            player.avatar &&
+                            player.avatar !== ""
+                        )
+                        ?
+                        player.avatar
+                        :
+                        defaultPawn,
+
+                    joined:
+                        member.joined
+
+                }))
+
+                .catch(error => {
+
+                    console.error(error);
+
+                    return {
+
+                        username:
+                            member.username,
+
+                        avatar:
+                            defaultPawn,
+
+                        joined:
+                            member.joined
+
+                    };
+
+                })
+
+            );
+
+
+        const members =
+            await Promise.all(memberPromises);
+
+
+        /* Render */
+
+        members.forEach(
+            (member, index) => {
+
+                const joinedDate =
+                    new Date(
+                        member.joined * 1000
+                    );
+
+
+                const memberHTML = `
+
+                    <a
+                        href="https://www.chess.com/member/${member.username}"
+                        target="_blank"
+                    >
+
+                        <div class="member-box">
+
+                            <div class="rank-number">
+                                ${index + 1}
+                            </div>
+
+
+                            <div class="avatar-wrapper">
+
+                                <img
+                                    src="${member.avatar}"
+                                    class="avatar"
+                                    onerror="this.src='${defaultPawn}'"
+                                >
+
+                                <div class="new-badge">
+                                    NEW
+                                </div>
+
+                            </div>
+
+
+                            <div class="info-container">
+
+                                <span class="name">
+                                    ${member.username}
+                                </span>
+
+                                <span class="time-ago">
+                                    ${timeAgo(joinedDate)}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                `;
+
+
+                list.innerHTML += memberHTML;
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        list.innerHTML =
+            "<div class='loading-text'>Unable to load members</div>";
+
+    }
+
+}
+
+
+/* START */
+
+load();
+
+</script>
+
+</body>
+</html
